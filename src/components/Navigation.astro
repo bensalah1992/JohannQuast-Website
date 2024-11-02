@@ -1,0 +1,29 @@
+---
+// Navigation.astro
+export interface NavItem {
+  href: string;
+  title: string;
+}
+
+interface Props {
+  navItems: NavItem[];
+}
+
+// Default Navigation Links
+const defaultNavItems: NavItem[] = [
+  { href: '/service', title: 'Service' },
+  { href: '/aktuelles', title: 'Aktuelles' },
+  { href: '/jobs', title: 'Jobs' },
+  { href: '/kontakt', title: 'Kontakt' }
+];
+
+const { navItems = defaultNavItems } = Astro.props as Props;
+---
+
+<nav>
+  <ul>
+    {navItems.map(item => (
+      <li><a href={item.href}>{item.title}</a></li>
+    ))}
+  </ul>
+</nav>
