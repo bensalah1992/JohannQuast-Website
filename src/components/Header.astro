@@ -1,20 +1,36 @@
 ---
 // Header.astro
 import Navigation from './Navigation.astro';
-
-const navItems = [
-  { href: '/service', title: 'Service' },
-  { href: '/aktuelles', title: 'Aktuelles' },
-  { href: '/jobs', title: 'Jobs' },
-  { href: '/kontakt', title: 'Kontakt' }
-];
 ---
 
-<header>
+<header class="header">
   <div class="logo">
     <a href="/">
       <img src="/images/logo.svg" alt="Johann-Quast-Logo">
     </a>
   </div>
-  <Navigation navItems={navItems} />
+  <Navigation />
 </header>
+
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 100px;
+    background-color: rgba(249, 249, 249, 0.7);
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo img {
+    height: 50px;
+    margin-top: 10px;
+    transform: scale(4.5);
+    transform-origin: center;
+  }
+</style>

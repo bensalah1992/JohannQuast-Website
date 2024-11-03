@@ -1,16 +1,35 @@
 ---
+// index.astro
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
 
+const heroProps = {
+  title: "Frische aus der Region, Qualität für Ihre Küche",
+  subtitle: "Obst und Gemüse für Gastronomie und Einzelhandel – direkt und zuverlässig geliefert",
+  backgroundImage: "/images/hero-background.png",
+  buttonText: "Jetzt Kontakt aufnehmen",
+  buttonLink: "/kontakt"
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>JOHANN QUAST</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <Header />
+
+    <!-- Hero -->
+    <Hero {...heroProps} />
+
+    <!-- Hauptinhalt -->
+    <main>
+      <h2>Willkommen bei Johann Quast!</h2>
+      <p>Wir sind Ihr verlässlicher Partner für frische Produkte aus der Region.</p>
+    </main>
+  </body>
 </html>
