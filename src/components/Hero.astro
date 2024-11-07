@@ -1,23 +1,18 @@
 ---
 // Hero.astro
 export interface Props {
-  title: string;
-  subtitle?: string;
+  svgLogo: string;
   backgroundImage: string;
   buttonText?: string;
   buttonLink?: string;
 }
 
-const { title, subtitle, backgroundImage, buttonText, buttonLink } = Astro.props;
+const { svgLogo, backgroundImage, buttonText, buttonLink } = Astro.props;
 ---
 
-<section
-  class="hero"
-  style={`background-image: url('${backgroundImage}')`}
->
+<section class="hero" style={`--background-image: url('${backgroundImage}')`}>
   <div class="hero-content">
-    <h1>{title}</h1>
-    {subtitle && <p class="hero-subtitle">{subtitle}</p>}
+    <img src={svgLogo} alt="Firmenlogo" class="hero-logo" />
     {buttonText && buttonLink && (
       <a href={buttonLink} class="hero-button">{buttonText}</a>
     )}
@@ -26,41 +21,70 @@ const { title, subtitle, backgroundImage, buttonText, buttonLink } = Astro.props
 
 <style>
 .hero {
+  height: 50vh;
+  background-image:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, white 100%), 
+    var(--background-image);
   background-size: cover;
-  background-position: center;
+  background-position: center 50%;
   padding: 200px 20px;
   color: white;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-content {
   max-width: 900px;
   margin: 0 auto;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+  position: relative;
+  z-index: 1;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
+.hero-logo {
+  height: 150px;
+  max-width: 80%;
+  transform: scale(9);
+  position: relative;
+  top: 5px;
+  z-index: 0;
 }
 
 .hero-button {
-  background-color: #ff5733;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  background-color: #ffeedc;
+  color: #00652c;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  border-radius: 15px;
   text-decoration: none;
   font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  z-index: 2;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .hero-button:hover {
-  background-color: #e04a2f;
+  transform: scale(1.15);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.4);
 }
 </style>
+
+<script>
+  document.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero') as HTMLElement;
+    const scrollPosition = window.scrollY;
+    const basePosition = 50;
+    
+    // Parallax-Effekt mit Begrenzung
+    const offset = Math.min(basePosition + scrollPosition * 0.09, 100);
+    hero.style.backgroundPositionY = `${offset}%`;
+  });
+</script>

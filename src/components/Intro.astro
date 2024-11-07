@@ -1,0 +1,62 @@
+---
+// Intro.astro
+export interface Props {
+  imageUrl: string;
+  imageAlt: string;
+  title: string;
+  text: string;
+}
+
+const { imageUrl, imageAlt, title, text } = Astro.props;
+---
+
+<section class="intro-section">
+  <div class="intro-image">
+    <img src={imageUrl} alt={imageAlt} />
+  </div>
+  <div class="intro-text">
+    <h2>{title}</h2>
+    <p set:html={text}></p>
+  </div>
+</section>
+
+<style>
+.intro-section {
+  display: flex;
+  align-items: center;
+  padding: 50px 20px;
+  gap: 20px;
+  margin-top: -60px;
+}
+
+.intro-image {
+  flex: 1;
+}
+
+.intro-image img {
+  width: 70%;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-left: 50px;
+}
+
+.intro-text {
+  flex: 1;
+}
+
+.intro-text h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #00652c;
+  max-width: 800px;
+  margin-left: -50px;
+}
+
+.intro-text p {
+  font-size: 1.3rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 650px;
+  margin-left: -50px;
+}
+</style>

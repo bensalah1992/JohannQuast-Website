@@ -2,13 +2,20 @@
 // index.astro
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Intro from '../components/Intro.astro';
 
 const heroProps = {
-  title: "Frische aus der Region, Qualität für Ihre Küche",
-  subtitle: "Obst und Gemüse für Gastronomie und Einzelhandel – direkt und zuverlässig geliefert",
   backgroundImage: "/images/hero-background.png",
-  buttonText: "Jetzt Kontakt aufnehmen",
+  svgLogo: "public/images/Johann Quast.svg",
+  buttonText: "Wir freuen uns auf Ihren Anruf",
   buttonLink: "/kontakt"
+};
+
+const introProps = {
+  imageUrl: "/images/intro1.jpg",
+  imageAlt: "Frischer Koriander",
+  title: "Frische Lebensmittel – Direkt und zuverlässig, wann und wo Sie wollen",
+  text: "<strong>Seit über 30 Jahren</strong> bringen wir Ihnen frisches Obst und Gemüse direkt aus dem Herzen Hamburgs – <strong>vom Hamburger Großmarkt zu Ihnen</strong>. Wir stehen für Qualität, Zuverlässigkeit und faire Preise und setzen alles daran, Ihre Wünsche flexibel und persönlich zu erfüllen. Mit einem starken Fokus auf Qualität und einem echten Verständnis für Ihre Anforderungen liefern wir die Frische direkt dorthin, wo Sie sie brauchen – jeden Tag und überall."
 };
 ---
 
@@ -20,16 +27,15 @@ const heroProps = {
     <title>JOHANN QUAST</title>
   </head>
   <body>
-    <!-- Header -->
+    <!-- Header-Bereich -->
     <Header />
 
-    <!-- Hero -->
+    <!-- Hero-Bereich -->
     <Hero {...heroProps} />
 
-    <!-- Hauptinhalt -->
-    <main>
-      <h2>Willkommen bei Johann Quast!</h2>
-      <p>Wir sind Ihr verlässlicher Partner für frische Produkte aus der Region.</p>
-    </main>
+    <!-- Intro-Bereich -->
+    <Intro {...introProps} />
+
+    <!-- Weiterer Inhalt hier -->
   </body>
 </html>
