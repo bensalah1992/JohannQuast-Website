@@ -11,11 +11,35 @@ const heroProps = {
   buttonLink: "/kontakt"
 };
 
-const introProps = {
+const introProps1 = {
   imageUrl: "/images/intro1.jpg",
   imageAlt: "Frischer Koriander",
   title: "Frische Lebensmittel – Direkt und zuverlässig, wann und wo Sie wollen",
-  text: "<strong>Seit über 30 Jahren</strong> bringen wir Ihnen frisches Obst und Gemüse direkt aus dem Herzen Hamburgs – <strong>vom Hamburger Großmarkt zu Ihnen</strong>. Wir stehen für Qualität, Zuverlässigkeit und faire Preise und setzen alles daran, Ihre Wünsche flexibel und persönlich zu erfüllen. Mit einem starken Fokus auf Qualität und einem echten Verständnis für Ihre Anforderungen liefern wir die Frische direkt dorthin, wo Sie sie brauchen – jeden Tag und überall."
+  text: `
+    <strong>Seit über 30 Jahren</strong> bringen wir Ihnen frisches Obst und Gemüse direkt aus dem Herzen Hamburgs – 
+    <strong>vom Hamburger Großmarkt zu Ihnen</strong>. 
+    Wir stehen für Qualität, Zuverlässigkeit und faire Preise und setzen alles daran, Ihre Wünsche flexibel und persönlich zu erfüllen. 
+    Mit einem starken Fokus auf Qualität und einem echten Verständnis für Ihre Anforderungen liefern wir die Frische direkt dorthin, 
+    wo Sie sie brauchen – jeden Tag und überall.
+  `
+};
+
+const introProps2 = {
+  imageUrl: "/images/intro2.jpg",
+  imageAlt: "Frisches Obst",
+  title: "Qualität und Frische für Ihre Küche",
+  text: `
+    Unser Sortiment umfasst eine große Auswahl an <strong>regionalem Obst und Gemüse</strong>, das täglich frisch für Sie bereitgestellt wird. 
+    Wir arbeiten eng mit <strong>lokalen</strong> und <strong>überregionalen Erzeugern</strong> zusammen, um Ihnen die beste Qualität zu garantieren. 
+    Mit unserer <strong>langjährigen Erfahrung</strong> beliefern wir zuverlässig ganz <strong>Hamburg und Umgebung</strong> und bieten Ihnen eine 
+    Vielfalt an frischen Produkten – von <strong>saisonalem Obst</strong> und <strong>knackigem Gemüse</strong> über <strong>exotische Früchte</strong> bis hin zu <strong>geschnittener Ware</strong> und Feinkost.
+
+    Unsere Philosophie ist es, Ihnen jeden Tag die besten und frischesten Zutaten zur Verfügung zu stellen. 
+    Egal, ob Sie ein Restaurant, einen Einzelhandel oder eine Großküche betreiben – bei uns finden Sie alles, 
+    was Sie brauchen, um Ihre Gäste und Kunden mit <strong>hochwertigen, frischen Lebensmitteln</strong> zu versorgen.
+  `,
+  reverse: true,
+  customClass: "intro-offset"
 };
 ---
 
@@ -33,8 +57,11 @@ const introProps = {
     <!-- Hero-Bereich -->
     <Hero {...heroProps} />
 
-    <!-- Intro-Bereich -->
-    <Intro {...introProps} />
+    <!-- Erste Intro-Sektion -->
+    <Intro {...introProps1} />
+
+    <!-- Zweite Intro-Sektion mit umgekehrter Reihenfolge -->
+    <Intro {...introProps2} />
 
     <!-- Weiterer Inhalt hier -->
   </body>
