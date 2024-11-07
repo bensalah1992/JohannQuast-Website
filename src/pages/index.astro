@@ -1,9 +1,8 @@
 ---
 // index.astro
-import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Intro from '../components/Intro.astro';
-import Footer from '../components/Footer.astro';
 
 const heroProps = {
   backgroundImage: "/images/hero-background.png",
@@ -41,30 +40,15 @@ const introProps2 = {
 };
 ---
 
-<html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <title>JOHANN QUAST</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <!-- Header-Bereich -->
-    <Header />
+<BaseLayout title="">
 
-    <!-- Hero-Bereich -->
-    <Hero {...heroProps} />
+  <!-- Hero-Bereich -->
+  <Hero {...heroProps} />
 
-    <!-- Erste Intro-Sektion -->
-    <Intro {...introProps1} />
+  <!-- Erste Intro-Sektion -->
+  <Intro {...introProps1} />
 
-    <!-- Zweite Intro-Sektion mit umgekehrter Reihenfolge -->
-    <Intro {...introProps2} />
+  <!-- Zweite Intro-Sektion -->
+  <Intro {...introProps2} />
 
-    <!-- Footer-Bereich -->
-    <Footer />
-
-    <!-- Weiterer Inhalt hier -->
-  </body>
-</html>
+</BaseLayout>
