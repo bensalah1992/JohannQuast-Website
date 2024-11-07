@@ -12,33 +12,53 @@ const navItems = [
 <nav class="navigation">
   <ul>
     {navItems.map(item => (
-      <li><a href={item.href}>{item.title}</a></li>
+      <li class="nav-item">
+        <a href={item.href}>{item.title}</a>
+      </li>
     ))}
   </ul>
 </nav>
 
 <style>
-  .navigation ul {
-    display: flex;
-    gap: 50px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+.navigation ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-  .navigation a {
-    color: #333;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.2rem;
-    display: block;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
+.nav-item {
+  padding: 0 10px;
+  position: relative;
+}
 
-  .navigation a:hover {
-    background-color: rgba(255, 87, 51, 0.1);
-    color: #ff5733;
-  }
+.nav-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 1px;
+  background-color: #ddd;
+}
+
+.navigation a {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.navigation a:hover {
+  background-color: #00652c;
+  color: #ffeedc;
+  text-decoration: underline;
+}
 </style>
