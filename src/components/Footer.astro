@@ -1,0 +1,39 @@
+---
+// Footer.astro
+---
+
+<footer class="footer">
+    <ul>
+      <li><a href="/impressum">Impressum</a></li>
+      <li><a href="/datenschutz">Datenschutz</a></li>
+    </ul>
+  </footer>
+  
+  <style>
+  .footer {
+    background-color: #00652c;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+  }
+  
+  .footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: #ffeedc;
+  }
+  </style>
