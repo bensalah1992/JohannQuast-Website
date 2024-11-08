@@ -1,0 +1,191 @@
+---
+// src/pages/service.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const heroProps = {
+  backgroundImage: "/images/service-hero.jpg",
+  logo: "/images/service-intro.svg"
+};
+
+const services = [
+  {
+    icon: "fa-solid fa-truck",
+    title: "Regionales Obst & Gemüse",
+    description: `
+      Frisch von den Äckern der Vier- und Marschlande - gleich vor den Toren Hamburgs - 
+      bekommen wir Kartoffeln, Spargel, Salate und viele andere Leckereien angeliefert 
+      und schicken sie direkt weiter zu Ihnen.
+    `
+  },
+  {
+    icon: "fa-solid fa-leaf",
+    title: "Knackig frische Kräuter",
+    description: `
+      Geben Sie Ihren Gerichten mit frischen Kräutern einfach und schnell den richtigen Pepp. 
+      Als Kräuter werden Pflanzen bezeichnet, deren Blätter und Blüten frisch oder getrocknet 
+      als Gewürze Verwendung finden.
+    `
+  },
+  {
+    icon: "fa-solid fa-utensils",
+    title: "Küchenfertige Produkte",
+    description: `
+      Küchenfertige Produkte bieten Ihnen viele Vorteile: zum einen entfällt das lästige 
+      Waschen der Ware, zum anderen führt der schnelle Einsatz bei Stoßzeiten zu Kosten- 
+      und Energieeinsparungen!
+    `
+  }
+];
+---
+
+<BaseLayout title="Service">
+  <!-- Hero-Bereich mit zentriertem Logo -->
+  <section class="service-hero" style={`background-image: url(${heroProps.backgroundImage})`}>
+    <div class="hero-content">
+      <img src={heroProps.logo} alt="Firmenlogo" class="hero-logo" />
+    </div>
+  </section>
+  
+  <!-- Textcontainer für Service-Informationen -->
+  <section class="service-info">
+    <div class="info-text">
+      <h2>Unser Serviceangebot</h2>
+      <p>
+        Wir bieten Ihnen eine Vielzahl an Serviceleistungen, um sicherzustellen, dass Ihre Anforderungen erfüllt werden. 
+        Von frischem Obst und Gemüse bis hin zu küchenfertigen Produkten – alles aus einer Hand.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Service Cards Overlay-Bereich -->
+  <section class="service-overlay">
+    <div class="service-cards">
+      {services.map((service) => (
+        <div class="service-card">
+          <div class="service-icon">
+            <i class={service.icon}></i>
+          </div>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+/* Hero-Bereich */
+.service-hero {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo im Hero-Bereich */
+.hero-logo {
+  width: 1000px;
+  max-width: 100%;
+  margin-bottom: -5rem;
+}
+
+/* Service-Info Textcontainer */
+.service-info {
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(0, 101, 44, 0.9);
+}
+
+.info-text {
+  max-width: 800px;
+}
+
+.info-text h2 {
+  color: #ffeedc;
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-text p {
+  font-size: 1.5rem;
+  color: #ffeedc;
+  line-height: 1.6;
+}
+
+/* Service-Overlay-Bereich */
+.service-overlay {
+  background-image: url('/images/overlay-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 1rem;
+  position: relative;
+  color: white;
+}
+
+/* Service-Cards Container */
+.service-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3rem;
+  padding-left: 4rem; 
+  margin-right: 10rem;
+}
+
+/* Service Card Styling */
+.service-card {
+  background-color: rgba(0, 101, 44, 0.9);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon Styling */
+.service-icon {
+  font-size: 5rem;
+  color: #ffeedc;
+  margin-bottom: 1rem;
+}
+
+/* Service Title Styling */
+.service-card h3 {
+  font-size: 3rem;
+  color: #ffeedc;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Service Description Text */
+.service-card p {
+  font-size: 1.4rem;
+  color: #ffffff;
+  line-height: 1.6;
+}
+</style>
