@@ -1,0 +1,173 @@
+---
+// src/pages/kontakt.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const contactDetails = {
+  address: `
+    <strong>Johann Quast GmbH</strong><br>
+    Großmarkt Hamburg<br>
+    Gebäude 3 - Zimmer 145<br>
+    Banksstraße 28, 20097 Hamburg
+  `,
+  hoursInfo: "<strong>24 Stunden</strong> für Sie erreichbar – wir freuen uns auf Ihre Anfrage.",
+  phone: "+49 40 303 740 45",
+  email: "info@johann-quast.de",
+  mapLink: "https://maps.app.goo.gl/9U7wU5XyNqnkX9gb8"
+};
+---
+
+<BaseLayout title="Kontakt">
+  <section class="contact-section">
+    <h1 class="contact-title">Kontaktieren Sie uns</h1>
+
+    <p class="hours-info" set:html={contactDetails.hoursInfo}></p>
+
+    <!-- Adresse und Kontaktinformationen -->
+    <div class="contact-container">
+      <div class="contact-card">
+        <h2>Unsere Adresse</h2>
+        <p set:html={contactDetails.address}></p>
+        <a href={contactDetails.mapLink} target="_blank" class="map-button">Google Maps</a>
+      </div>
+      
+      <!-- Telefon / E-Mail -->
+      <div class="contact-card">
+        <h2>Erreichbarkeit</h2>
+        <p><strong>Telefon:</strong> <a href={`tel:${contactDetails.phone}`}>{contactDetails.phone}</a></p>
+        <p><strong>E-Mail:</strong> <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a></p>
+      </div>
+    </div>
+    
+    <!-- Kontaktformular -->
+    <div class="contact-form">
+      <h2>Kontaktformular</h2>
+      <form>
+        <label for="name">Ihr Name</label>
+        <input type="text" id="name" name="name" placeholder="Ihr Name" required />
+
+        <label for="email">Ihre E-Mail</label>
+        <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required />
+
+        <label for="phone">Telefonnummer</label>
+        <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer (optional)" />
+
+        <label for="message">Nachricht</label>
+        <textarea id="message" name="message" rows="4" placeholder="Ihre Nachricht" required></textarea>
+
+        <button type="submit">Nachricht senden</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.contact-section {
+  padding: 2rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.contact-title {
+  font-size: 2.8rem;
+  color: #00652c;
+  margin-bottom: 1.5rem;
+}
+
+.hours-info {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 2.5rem;
+}
+
+.contact-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.contact-card {
+  flex: 1;
+  padding: 1.8rem;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card h2 {
+  font-size: 1.6rem;
+  color: #00652c;
+  margin-bottom: 0.75rem;
+}
+
+.contact-card p {
+  font-size: 1.15rem;
+  color: #333;
+}
+
+.contact-card a {
+  color: #00652c;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/* Kontaktformular Styling */
+.contact-form {
+  background-color: #f7f7f7;
+  padding: 2.5rem;
+  margin: 4rem 0;
+  border-radius: 10px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.contact-form h2 {
+  color: #00652c;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.contact-form label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  background-color: #00652c;
+  color: white;
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #004d1f;
+}
+</style>
