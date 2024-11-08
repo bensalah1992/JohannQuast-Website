@@ -1,0 +1,163 @@
+---
+// src/pages/jobs.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const jobDetails = [
+  { title: "Fahrer/in", type: "Vollzeit", field: "Logistik" },
+  { title: "Lagerarbeiter/in", type: "Teilzeit", field: "Lagerhaltung" },
+  { title: "Vertriebsmitarbeiter/in", type: "Vollzeit", field: "Vertrieb" },
+];
+---
+
+<BaseLayout title="Jobs">
+  <!-- Hero -->
+  <section class="jobs-hero">
+    <div class="hero-image"></div>
+    <h1 class="hero-title">Komm in unser Team!</h1>
+  </section>
+
+  <!-- Text Container -->
+  <section class="jobs-content">
+    <div class="jobs-description">
+      <p>
+        Als <strong>Familienunternehmen</strong> legen wir großen Wert auf eine persönliche und familiäre Atmosphäre, in der sich jeder Mitarbeiter geschätzt und unterstützt fühlt. 
+        Bei <strong>Johann Quast</strong> zählt jeder Einzelne – ob im Lager, auf der Straße oder im Büro. Gemeinsam sorgen wir dafür, dass täglich frische Lebensmittel zuverlässig zu unseren Kunden gelangen.
+      </p>
+    </div>
+  
+    <div class="jobs-callout">
+      <h2>Werde Teil unserer Familie – deine Arbeit macht den Unterschied!</h2>
+    </div>
+  </section>
+
+  <!-- Stellenangebote-Tabelle -->
+  <section class="jobs-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Bezeichnung</th>
+          <th>Beschäftigungsart</th>
+          <th>Berufsfeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        {jobDetails.map((job) => (
+          <tr>
+            <td>{job.title}</td>
+            <td>{job.type}</td>
+            <td>{job.field}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="contact-info">
+    <p>
+      Ist etwas Passendes für dich dabei? <strong>Ruf uns gerne an</strong> oder schreib uns eine Mail – wir freuen uns auf deine Nachricht!
+    </p>
+
+    <h2>Tel.: 040 303 740 45</h2>
+    <h2>info@johann-quast.de</h2>
+  </section>
+</BaseLayout>
+
+<style>
+/* Hero-Bereich */
+.jobs-hero {
+  height: 40vh;
+  background-image: url('/images/jobs-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  text-align: center;
+}
+
+/* Textcontainer */
+.jobs-content {
+  display: flex;
+  gap: 200px;
+  padding: 50px 20px;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+.jobs-description {
+  flex: 1;
+  font-size: 1.3rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.jobs-callout {
+  flex: 1;
+  color: #00652c;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+/* Tabelle */
+.jobs-table {
+  max-width: 1000px;
+  margin: 3rem auto;
+}
+
+.jobs-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.jobs-table th, .jobs-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+  font-size: 1.3rem;
+}
+
+.jobs-table th {
+  background-color: #00652c;
+  color: white;
+  font-weight: bold;
+}
+
+.jobs-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Kontakt-Info */
+.contact-info {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #333;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.contact-info h2 {
+  color: #00652c;
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.contact-info p {
+  font-weight: 400;
+}
+
+.contact-info strong {
+  color: #00652c;
+}
+</style>
