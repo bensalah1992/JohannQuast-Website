@@ -15,7 +15,8 @@ const services = [
       Frisch von den Äckern der Vier- und Marschlande - gleich vor den Toren Hamburgs - 
       bekommen wir Kartoffeln, Spargel, Salate und viele andere Leckereien angeliefert 
       und schicken sie direkt weiter zu Ihnen.
-    `
+    `,
+    backgroundImage: "/images/pic1.jpg"
   },
   {
     icon: "fa-solid fa-leaf",
@@ -24,7 +25,8 @@ const services = [
       Geben Sie Ihren Gerichten mit frischen Kräutern einfach und schnell den richtigen Pepp. 
       Als Kräuter werden Pflanzen bezeichnet, deren Blätter und Blüten frisch oder getrocknet 
       als Gewürze Verwendung finden.
-    `
+    `,
+    backgroundImage: "/images/pic2.jpg"
   },
   {
     icon: "fa-solid fa-utensils",
@@ -33,20 +35,19 @@ const services = [
       Küchenfertige Produkte bieten Ihnen viele Vorteile: zum einen entfällt das  
       Waschen der Ware, zum anderen führt der schnelle Einsatz bei Stoßzeiten zu Kosten- 
       und Energieeinsparungen!
-    `
+    `,
+    backgroundImage: "/images/pic3.jpg"
   }
 ];
 ---
 
 <BaseLayout title="Service">
-  <!-- Hero-Bereich mit zentriertem Logo -->
   <section class="service-hero" style={`background-image: url(${heroProps.backgroundImage})`}>
     <div class="hero-content">
       <img src={heroProps.logo} alt="Firmenlogo" class="hero-logo" />
     </div>
   </section>
   
-  <!-- Textcontainer für Service-Informationen -->
   <section class="service-info">
     <div class="info-text">
       <h2>Unser Serviceangebot</h2>
@@ -57,11 +58,13 @@ const services = [
     </div>
   </section>
   
-  <!-- Service Cards Overlay-Bereich -->
   <section class="service-overlay">
     <div class="service-cards">
       {services.map((service) => (
-        <div class="service-card">
+        <div 
+          class="service-card"
+          style={`background-image: url(${service.backgroundImage});`}
+        >
           <div class="service-icon">
             <i class={service.icon}></i>
           </div>
@@ -151,7 +154,9 @@ const services = [
 
 /* Service Card Styling */
 .service-card {
-  background-color: rgba(0, 101, 44, 0.9);
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
   padding: 2rem;
   border-radius: 10px;
   max-width: 600px;
